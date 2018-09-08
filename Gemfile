@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.12'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
+gem 'twitter'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -21,6 +22,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rubocop', require: false
   gem 'rspec-rails'
   # gem 'debugger'
 end
