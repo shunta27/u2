@@ -24,12 +24,21 @@
             <a class="dropdown-item" href="#">すべて</a>
           </div>
         </li>
+        <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="#">登録</a>
+          <%= link_to 'マイページ', edit_user_registration_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ログイン</a>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'%>
         </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to '登録', new_user_registration_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, :class => 'nav-link'%>
+        </li>
+        <% end %>
       </ul>
     </div>
   </nav>
