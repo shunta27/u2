@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :confirmations => 'users/confirmations',
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :passwords => 'users/passwords'
+  }
+
   devise_scope :user do
-    get '/users', :to => 'devise/registrations#new'
+    get 'sign_up', :to => 'users/registrations#new'
+    post 'sign_up', :to => 'users/registrations#create'
+    get 'login', :to => 'users/sessions#new'
+    post 'login', :to => 'users/sessions#create'
+    get 'logout', :to => 'users/sessions#destroy'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

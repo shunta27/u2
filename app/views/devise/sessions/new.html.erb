@@ -3,7 +3,7 @@
 </div>
 
 <div class="signup_form col-12 col-sm-6 offset-sm-3">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: login_path) do |f| %>
   <div class="form-group row">
     <div class="col-sm-12">
       <%= f.label :email, 'メールアドレス', class: 'col-form-label' %><br />
