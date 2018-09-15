@@ -9,11 +9,19 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    # ユーザ登録
     get 'sign_up', :to => 'users/registrations#new'
     post 'sign_up', :to => 'users/registrations#create'
+    # ログイン
     get 'login', :to => 'users/sessions#new'
     post 'login', :to => 'users/sessions#create'
+    # ログアウト
     delete 'logout', :to => 'users/sessions#destroy'
+    # ユーザ編集
+    get 'user' => 'users/registrations#edit'
+    patch 'user' => 'users/registrations#update'
+    put 'user' => 'users/registrations#update'
+    delete 'user' => 'users/registrations#destroy'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
