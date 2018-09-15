@@ -17,20 +17,24 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-.errors ul {
-  margin: 0;
+.errors {
+  ul {
+    margin: 0;
+  }
 }
 
-nav .logo {
-  height: 30px;
-  padding-bottom: 3.0px;
+nav {
+  .logo {
+    height: 30px;
+    padding-bottom: 3.0px;
+  }
 }
 
-div.flash {
+.flash {
   margin-top: 27px;
 }
 
-label.chk_label {
+.chk_label {
   font-size: 0.8rem;
   margin-bottom: 0px;
 }
@@ -39,13 +43,99 @@ div {
   .title_block {
     text-align: center;
   }
-  h1.page_title {
+  .page_title {
     display: inline-block;
     font-size: 1.4rem;
     border-bottom: solid 1px #ccc;
     padding-bottom: 5px;
     margin-top: 27px;
     margin-bottom: 20px;
+  }
+  .page_title_catgory {
+    font-size: 1.0rem;
+    margin-bottom: 8px;
+    border-bottom: 0px;
+  }
+}
+
+.post_list {
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
+  li {
+    border-bottom: solid 1px #ccc;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+  }
+  .txt-0 {
+    color: #ccc;
+  }
+  .entry {
+    display: block;
+    text-align: center;
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+  }
+  .unsolved {
+    text-align: center;
+  }
+  .post_block {
+    vertical-align: top;
+    .category {
+      display: inline-block;
+      font-size: 0.2rem;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 1px;
+      line-height: 16px;
+    }
+    .hospital {
+      width: 40px;
+      background-color: #d03c56;
+    }
+  }
+  .entry_block {
+    padding-top: 6px;
+  }
+  .post_title {
+    font-size: 1.0rem;
+    margin-bottom: 2px;
+    font-weight: 700;
+    line-height: 25px;
+    a:link, a:visited {
+      color: #117ec6;
+    }
+  }
+  .editor {
+    display: inline-block;
+    font-size: 0.2rem;
+    a:link, a:visited {
+      color: #7e8081;
+    }
+    letter-spacing: 1px;
+  }
+  .edit_date {
+    display: inline-block;
+    color: #7e8081;
+    font-size: 0.2rem;
+    letter-spacing: 1px;
+  }
+}
+.sidebar {
+}
+.category_list {
+  width: 60%;
+  margin: 0 auto;
+  li {
+    font-size: 0.8rem;
+    border-bottom: 1px solid #ccc;
+  }
+  a {
+    color: #7e8081;
+    letter-spacing: 1px;
   }
 }
 
