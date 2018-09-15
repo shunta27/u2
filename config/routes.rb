@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  root to: 'home#index'
+
+  get 'about', :to => 'home#about'
+  get 'help', :to => 'home#help'
+  get 'inquiry', :to => 'home#inquiry'
 
   devise_for :users, skip: :all
   devise_scope :user do
