@@ -114,6 +114,8 @@ GEM
     popper_js (1.14.3)
     powerpack (0.1.2)
     public_suffix (3.0.3)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -232,6 +234,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2 (~> 0.3.13)
+  pundit
   rails (= 4.1.16)
   rspec-rails
   rubocop

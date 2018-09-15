@@ -4,7 +4,9 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def unsubscribe; end
+  def unsubscribe
+    authorize @user
+  end
 
   private
 

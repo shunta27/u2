@@ -14,6 +14,7 @@ gem 'draper'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'twitter'
+gem 'pundit'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
