@@ -1,8 +1,8 @@
 class Category < ActiveRecord::Base
   acts_as_paranoid
 
-  belongs_to :post
-  belongs_to :reply
+  has_one :post
+  has_one :reply
 
   private
 

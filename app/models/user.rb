@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
 
-  belongs_to :post
+  has_many :post
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
