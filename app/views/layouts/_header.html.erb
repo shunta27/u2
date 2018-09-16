@@ -12,6 +12,11 @@
         <li class="nav-item">
           <%= link_to 'U2トークとは', about_path, class: 'nav-link' %>
         </li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to '質問する', new_post_path, :class => 'nav-link' %>
+        </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             カテゴリ

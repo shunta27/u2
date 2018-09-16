@@ -1,0 +1,35 @@
+<div class="title_block">
+  <h1 class="page_title">質問を投稿</h1>
+</div>
+<div class="signup_form col-12 col-sm-6 offset-sm-3">
+<%= form_for(@post, :url => posts_new_path) do |f| %>
+  <% if @post.errors.any? %>
+  <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  <% end %>
+  <div class="form-group row">
+      <div class="col-sm-12">
+        <%= f.label :subject, 'タイトル', class: 'col-form-label' %><br />
+        <%= f.text_field :subject, class: 'form-control', placeholder: 'わからないこと、聞きたいことをお書きください' %>
+      </div>
+  </div>
+  <div class="form-group row">
+      <div class="col-sm-12">
+        <%= f.label :category_id, 'カテゴリー', class: 'col-form-label' %><br />
+        <%= f.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, { :prompt => '選択してください' }, { class: 'form-control'} %>
+      </div>
+  </div>
+  <div class="form-group row">
+      <div class="col-sm-12">
+        <%= f.label :body, '本文', class: 'col-form-label' %><br />
+        <%= f.text_area :body, size: '20x10', class: 'form-control', placeholder: '質問内容をお書きください' %>
+      </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <%= f.submit '投稿', class: 'entry btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+</div>

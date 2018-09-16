@@ -24,9 +24,12 @@ Rails.application.routes.draw do
   resources :users, only: :show
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
 
-  # resources :posts
+  resources :posts, only: [:new, :edit]
+  post '/posts/new', :to => 'posts#create'
+  patch '/posts/:id/edit', :to => 'posts#update'
+  put '/posts/:id/edit', :to => 'posts#update'
   resources :categories do
-    resources :posts
+    resources :posts, only: [:index, :show]
   end
 
 end
