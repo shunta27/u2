@@ -109,6 +109,8 @@ GEM
     naught (1.1.0)
     orm_adapter (0.5.0)
     parallel (1.12.1)
+    paranoia (2.4.1)
+      activerecord (>= 4.0, < 5.3)
     parser (2.5.1.2)
       ast (~> 2.4.0)
     popper_js (1.14.3)
@@ -234,6 +236,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2 (~> 0.3.13)
+  paranoia (~> 2.2)
   pundit
   rails (= 4.1.16)
   rspec-rails
