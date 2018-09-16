@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params.merge(user_id: current_user.id))
     if @post.save
-      redirect_to "/users/#{current_user.id}", notice: '記事を投稿しました。'
+      redirect_to user_show_path(current_user), notice: '記事を投稿しました。'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to "/users/#{current_user.id}", notice: '投稿を更新しました。'
+      redirect_to user_show_path(current_user), notice: '投稿を更新しました。'
     else
       render :edit
     end
