@@ -26,8 +26,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:new, :edit]
   post '/posts/new', :to => 'posts#create'
-  patch '/posts/:id/edit', :to => 'posts#update'
-  put '/posts/:id/edit', :to => 'posts#update'
+  patch '/posts/:id/edit', :to => 'posts#update', :as => 'posts_edit'
   resources :categories do
     resources :posts, only: [:index, :show]
   end

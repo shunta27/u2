@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update]
   respond_to :html
 
   def index
@@ -21,14 +22,24 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to "/users/#{current_user.id}", notice: '投稿を更新しました。'
+    else
+      render :edit
+    end
   end
 
   private
 
   def post_params
     params.require(:post).permit(:subject, :category_id, :body)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
