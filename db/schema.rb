@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180916043717) do
 
   create_table "categories", force: true do |t|
     t.string   "name",       default: "", null: false
+    t.string   "code",       default: "", null: false
     t.integer  "sort_num",   default: 0,  null: false
     t.datetime "deleted_at"
     t.datetime "created_at"

@@ -10,6 +10,14 @@ class Post < ActiveRecord::Base
   validates :subject, presence: true, length: { maximum: 100 }
   validates :body, presence: true, length: { maximum: 2000 }
 
+  def reply_count
+    if replies.loaded?
+      replies.to_a.count
+    else
+      replies.count
+    end
+  end
+
   private
 
   def self.default_order
