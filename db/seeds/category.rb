@@ -1,0 +1,6 @@
+Category.create(name: '病院',sort_num: 1, created_at: Time.current, updated_at: Time.current)
+Category.create(name: '薬',sort_num: 2, created_at: Time.current, updated_at: Time.current)
+Category.create(name: '赤ちゃん・育児',sort_num: 3, created_at: Time.current, updated_at: Time.current)
+Category.create(name: '子育て・家族',sort_num: 4, created_at: Time.current, updated_at: Time.current)
+Category.create(name: 'お仕事',sort_num: 5, created_at: Time.current, updated_at: Time.current)
+Category.create(name: 'マネー',sort_num: 6, created_at: Time.current, updated_at: Time.current)
