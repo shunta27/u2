@@ -17,14 +17,9 @@
             カテゴリ
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">病院</a>
-            <a class="dropdown-item" href="#">薬</a>
-            <a class="dropdown-item" href="#">赤ちゃん・育児</a>
-            <a class="dropdown-item" href="#">子育て・家族</a>
-            <a class="dropdown-item" href="#">お仕事</a>
-            <a class="dropdown-item" href="#">マネー</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">すべて</a>
+          <% @categories.each do |category| %>
+            <%= link_to(category.name, category_posts_path(category), :class => 'dropdown-item') %>
+          <% end %>
           </div>
         </li>
         <% if user_signed_in? %>

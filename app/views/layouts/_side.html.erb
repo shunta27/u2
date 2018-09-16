@@ -5,12 +5,11 @@
       </div>
       <div class="category_list">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="">病院</a></li>
-          <li class="list-group-item"><a href="">薬</a></li>
-          <li class="list-group-item"><a href="">赤ちゃん・育児</a></li>
-          <li class="list-group-item"><a href="">子育て・家族</a></li>
-          <li class="list-group-item"><a href="">お仕事</a></li>
-          <li class="list-group-item"><a href="">マネー</a></li>
+        <% @categories.each do |category| %>
+          <li class="list-group-item">
+          <%= link_to(category.name, category_posts_path(category)) %>
+          </li>
+        <% end %>
         </ul>
       </div>
     </div>

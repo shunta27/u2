@@ -23,4 +23,10 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
+
+  # resources :posts
+  resources :categories do
+    resources :posts
+  end
+
 end
