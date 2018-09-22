@@ -1,0 +1,15 @@
+<div class="title_block">
+  <h1 class="page_title"><%= @post.subject %></h1>
+</div>
+
+<div class="post col-12 col-sm-6 offset-sm-3">
+  <div class="post_info clearfix">
+    <div class="float-right">
+      <%= link_to(@post.user.name, user_show_path(@post.user)) %>
+      <span>(投稿日: <%= @post.created_at_view %>)</span>
+    </div>
+  </div>
+  <div class="post_body mt-2">
+    <%= @post.body_view %>
+  </div>
+</div>

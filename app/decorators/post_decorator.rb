@@ -5,8 +5,12 @@ class PostDecorator < Draper::Decorator
     object.reply_count
   end
 
+  def body_view
+    h.simple_format(object.body)
+  end
+
   def created_at_view
-    l(object.created_at, format: :YMD) if object.created_at.present?
+    l(object.created_at, format: :YMD)
   end
 
 end

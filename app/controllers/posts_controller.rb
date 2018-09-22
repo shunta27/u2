@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
-  respond_to :html
 
   def index
   end
@@ -40,6 +39,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).decorate
   end
 end
