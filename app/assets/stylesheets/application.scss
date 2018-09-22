@@ -58,6 +58,25 @@ div {
   }
 }
 
+.profile {
+  font-size: 0.8rem;
+  .profile_infomation {
+    ul {
+      display: flex;
+      padding: 0px;
+    }
+    li {
+      list-style-type: none;
+      flex-grow: 1;
+      text-align: center;
+    }
+    li + li {
+      border-left: 1px solid #ccc;
+      letter-spacing: 1px;
+    }
+  }
+}
+
 .post_list {
   ul {
     list-style: none;
@@ -143,8 +162,6 @@ div {
     font-size: 0.2rem;
     letter-spacing: 1px;
   }
-}
-.sidebar {
 }
 .category_list {
   width: 60%;
