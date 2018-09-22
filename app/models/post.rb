@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
   validates :subject, presence: true, length: { maximum: 100 }
   validates :body, presence: true, length: { maximum: 2000 }
 
+  scope :default_order, -> { order(created_at: :desc) }
+
   def reply_count
     if replies.loaded?
       replies.to_a.count
@@ -18,9 +20,4 @@ class Post < ActiveRecord::Base
     end
   end
 
-  private
-
-  def self.default_order
-    order('created_at DESC')
-  end
 end

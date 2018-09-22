@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: 50 }
+  validates :profile_text, length: { maximum: 1000 }
 end
