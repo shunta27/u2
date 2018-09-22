@@ -1,15 +1,68 @@
-<div class="title_block">
-  <h1 class="page_title"><%= @post.subject %></h1>
-</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="title_block">
+      <h1 class="page_title"><%= @post.subject %></h1>
+    </div>
 
-<div class="post col-12 col-sm-6 offset-sm-3">
-  <div class="post_info clearfix">
-    <div class="float-right">
-      <%= link_to(@post.user.name, user_show_path(@post.user)) %>
-      <span>(投稿日: <%= @post.created_at_view %>)</span>
+    <div class="post col-12 col-sm-10 offset-sm-1">
+      <div class="post_info clearfix">
+        <div class="float-right">
+          <%= link_to(@post.user.name, user_show_path(@post.user)) %>
+          <span>(投稿日: <%= @post.created_at_view %>)</span>
+        </div>
+      </div>
+      <div class="post_body mt-2">
+        <%= @post.body_view %>
+      </div>
+
+      <% replies = ReplyDecorator.decorate_collection(@post.replies) %>
+      <% if replies.present? %>
+      <div class="post_replies mt-5">
+        <% replies.each do |reply| %>
+        <div class="post_reply">
+          <div class="post_reply_body">
+            <%= reply.body_view %>
+            <div class="post_info clearfix">
+              <div class="float-right">
+                <%= link_to(reply.user.name, user_show_path(reply.user)) %>
+                <span><%= reply.created_at_view %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+      <hr>
+      <div class="post_reply_form">
+        <%= form_for(@reply, :url => category_reply_path) do |f| %>
+        <% if @reply.errors.any? %>
+          <div class="errors alert alert-danger">
+            <ul>
+            <% @reply.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+          <%= f.hidden_field :post_id, value: @post.id %>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.label :body, 'コメント', class: 'col-form-label' %><br />
+              <%= f.text_area :body, size: '20x3', class: 'form-control', placeholder: '' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.submit '投稿', class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
     </div>
   </div>
-  <div class="post_body mt-2">
-    <%= @post.body_view %>
-  </div>
+    <%= render 'layouts/side' %>
 </div>

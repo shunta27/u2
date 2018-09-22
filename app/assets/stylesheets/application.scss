@@ -44,23 +44,21 @@ nav {
   margin-bottom: 0px;
 }
 
-div {
-  .title_block {
-    text-align: center;
-  }
-  .page_title {
-    display: inline-block;
-    font-size: 1.4rem;
-    border-bottom: solid 1px #ccc;
-    padding-bottom: 5px;
-    margin-top: 27px;
-    margin-bottom: 20px;
-  }
-  .page_title_catgory {
-    font-size: 1.0rem;
-    margin-bottom: 8px;
-    border-bottom: 0px;
-  }
+.title_block {
+  text-align: center;
+}
+.page_title {
+  display: inline-block;
+  font-size: 1.4rem;
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 5px;
+  margin-top: 27px;
+  margin-bottom: 20px;
+}
+.page_title_catgory {
+  font-size: 1.0rem;
+  margin-bottom: 8px;
+  border-bottom: 0px;
 }
 
 .profile {
@@ -106,40 +104,6 @@ div {
   }
   .post_block {
     vertical-align: top;
-    .category {
-      display: inline-block;
-      font-size: 0.2rem;
-      border-radius: 5px;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      letter-spacing: 1px;
-      line-height: 16px;
-    }
-    .hospital {
-      width: 40px;
-      background-color: #d03c56;
-    }
-    .medicine {
-      width: 40px;
-      background-color: #3c7ad0;
-    }
-    .child_care {
-      width: 100px;
-      background-color: #3cd095;
-    }
-    .family {
-      width: 100px;
-      background-color: #d0b23c;
-    }
-    .job {
-      width: 45px;
-      background-color: #9c3cd0;
-    }
-    .money {
-      width: 45px;
-      background-color: #373a3b;
-    }
   }
   .entry_block {
     padding-top: 6px;
@@ -168,6 +132,40 @@ div {
     letter-spacing: 1px;
   }
 }
+.category {
+  display: inline-block;
+  font-size: 0.2rem;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 16px;
+}
+.hospital {
+  width: 40px;
+  background-color: #d03c56;
+}
+.medicine {
+  width: 40px;
+  background-color: #3c7ad0;
+}
+.child_care {
+  width: 100px;
+  background-color: #3cd095;
+}
+.family {
+  width: 100px;
+  background-color: #d0b23c;
+}
+.job {
+  width: 45px;
+  background-color: #9c3cd0;
+}
+.money {
+  width: 45px;
+  background-color: #373a3b;
+}
 .category_list {
   width: 60%;
   margin: 0 auto;
@@ -181,6 +179,7 @@ div {
   }
 }
 .post {
+  font-size: 1.0rem;
   .post_info {
     a {
       font-size: 0.8rem;
@@ -193,8 +192,35 @@ div {
   }
   .post_body {
     p {
-      font-size: 15px;
       line-height: 2;
+    }
+  }
+  .post_replies {
+    .post_reply {
+      margin-bottom: 0.8rem
+    }
+    .post_reply_body {
+      // position: relative;
+      // margin-top: 0.5em;
+      padding: 7px 10px;
+      min-width: 120px;
+      color: #555;
+      background: #e0edff;
+      border-radius: 15px;
+    }
+    // .post_reply_body:before{
+    //   content: "";
+    //   position: absolute;
+    //   top: -10px;
+    //   left: 30px;
+    //   margin-left: -15px;
+    //   border: 5px solid transparent;
+    //   border-bottom: 7px solid #e0edff;
+    // }
+  }
+  .post_reply_form {
+    .btn {
+      width: 100%;
     }
   }
 }
@@ -233,7 +259,7 @@ footer {
 .footer {
   padding-top: 10px;
   margin-top: 50px;
-  background-color: #eee;
+  background-color: #f8f9fa;
 }
 
 .signup_form {

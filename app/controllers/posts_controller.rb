@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
-  def index
-  end
+  def index; end
 
   def show
+    @reply = Reply.new
   end
 
   def new

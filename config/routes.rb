@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   patch '/posts/:id/edit', :to => 'posts#update', :as => 'posts_edit'
   resources :categories do
     resources :posts, only: [:index, :show]
+    post '/posts/:id', :to => 'replies#create', :as => 'reply'
   end
 
 end
