@@ -22,7 +22,8 @@ Rails.application.routes.draw do
     delete 'user' => 'users/registrations#destroy'
   end
   resources :users, only: :show, :as => 'user_show' do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:show]
+    get '/posts', :to => 'posts#users_index', :as => 'users_index'
   end
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
 

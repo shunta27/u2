@@ -1,7 +1,17 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
-  def index; end
+  def index
+    @category = @categories.find(params[:category_id])
+    @posts = Post.page(params[:page]).per(10)
+    @posts = @posts.where(category_id: params[:category_id]).default_order
+  end
+
+  def users_index
+    @user = User.find(params[:user_show_id]).decorate
+    @posts = Post.page(params[:page]).per(10)
+    @posts = @posts.where(user_id: params[:user_show_id]).default_order
+  end
 
   def show
     @reply = Reply.new
@@ -14,7 +24,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params.merge(user_id: current_user.id))
     if @post.save
-      redirect_to user_show_path(current_user), notice: '記事を投稿しました。'
+      redirect_to category_post_path(@post.category_id, @post.id), notice: '記事を投稿しました。'
     else
       render :new
     end
@@ -26,7 +36,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to user_show_path(current_user), notice: '投稿を更新しました。'
+      redirect_to category_post_path(@post.category_id, @post.id), notice: '投稿を更新しました。'
     else
       render :edit
     end
