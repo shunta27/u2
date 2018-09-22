@@ -1,18 +1,18 @@
 <div class="title_block">
-  <h1 class="page_title"><%= current_user.name %></h1>
+  <h1 class="page_title"><%= @user.name %></h1>
 </div>
 
 <div class="profile col-12 col-sm-6 offset-sm-3">
   <div class="row">
     <div class="profile_infomation col-12 col-sm-6 offset-sm-3">
       <ul>
-        <li><%= link_to("質問数 #{@post_count}", user_show_posts_path(current_user)) %></li>
+        <li><%= link_to("質問数 #{@post_count}", user_show_posts_path(@user)) %></li>
       </ul>
     </div>
     <div class="col-12">
     </div>
   </div>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.id == @user.id %>
   <div class="text-right">
     <%= link_to('ユーザ情報を編集する', user_path) %>
   </div>
