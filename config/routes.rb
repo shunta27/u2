@@ -20,7 +20,12 @@ Rails.application.routes.draw do
     patch 'user' => 'users/registrations#update'
     put 'user' => 'users/registrations#update'
     delete 'user' => 'users/registrations#destroy'
+    #
+    get 'users/confirmation', to: 'users/confirmations#show', as: 'confirmation_token'
+    post 'users/confirmation', to: 'users/confirmations#create', as: 'confirmation_token_create'
+    get 'users/confirmation/new', to: 'users/confirmations#new', as: 'confirmation_token_new'
   end
+
   resources :users, only: :show, :as => 'user_show' do
     resources :posts, only: [:show]
     get '/posts', :to => 'posts#users_index', :as => 'users_index'

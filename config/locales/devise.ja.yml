@@ -46,6 +46,7 @@ ja:
 #      updated: 'You updated your account successfully.'
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
 #      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      signed_up_but_unconfirmed: "ご登録いただいたメールアドレスにメールを送信しました。メールを確認してアカウントを有効化してください。"
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
 #      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
@@ -53,7 +54,7 @@ ja:
 #      unlocked: 'Your account was successfully unlocked. You are now signed in.'
     mailer:
       confirmation_instructions:
-        subject: 'アカウントの登録方法'
+        subject: 'アカウント登録'
 #        subject: 'Confirmation instructions'
       reset_password_instructions:
         subject: 'パスワードの再設定'
