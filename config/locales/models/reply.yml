@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      reply: コメント
+    attributes:
+      reply:
+        body: コメント内容
