@@ -3,7 +3,7 @@ version: "2"
 services:
   web:
     build: .
-    container_name: rails
+    container_name: u2-app
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     restart: always
     env_file:
@@ -20,7 +20,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: mysql
+    container_name: u2-db
     restart: always
     env_file:
       ./.env
@@ -29,6 +29,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: u2-phpmyadmin
     restart: always
     env_file:
       ./.env
