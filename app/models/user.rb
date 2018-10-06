@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :profile_text, length: { maximum: 1000 }
 end
