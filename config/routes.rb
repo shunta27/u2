@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'sign_up', :to => 'users/registrations#new'
     post 'sign_up', :to => 'users/registrations#create'
     # ログイン
-    get 'login', :to => 'users/sessions#new'
+    get 'login', :to => 'users/sessions#new', as: :new_user_session
     post 'login', :to => 'users/sessions#create'
     # ログアウト
     delete 'logout', :to => 'users/sessions#destroy'
@@ -20,10 +20,16 @@ Rails.application.routes.draw do
     patch 'user' => 'users/registrations#update'
     put 'user' => 'users/registrations#update'
     delete 'user' => 'users/registrations#destroy'
-    #
+    # ユーザ認証
     get 'users/confirmation', to: 'users/confirmations#show', as: 'confirmation_token'
     post 'users/confirmation', to: 'users/confirmations#create', as: 'confirmation_token_create'
     get 'users/confirmation/new', to: 'users/confirmations#new', as: 'confirmation_token_new'
+    # パスワードリセット
+    get 'password' => 'users/passwords#new', as: :new_user_password
+    post 'password' => 'users/passwords#create', as: :user_password
+    get 'password/reset/:reset_password_token' => 'users/passwords#edit', as: :edit_user_password
+    patch 'password' => 'users/passwords#update'
+    put 'password' => 'users/passwords#update', as: :update_user_password
   end
 
   resources :users, only: :show, :as => 'user_show' do
