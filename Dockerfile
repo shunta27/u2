@@ -1,4 +1,4 @@
-FROM ruby:2.2
+FROM ruby:2.5.1
 ENV LANG C.UTF-8
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
