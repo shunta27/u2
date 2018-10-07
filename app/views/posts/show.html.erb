@@ -7,7 +7,11 @@
     <div class="post col-12 col-sm-10 offset-sm-1">
       <div class="post_info clearfix">
         <div class="float-right">
+          <% if @post.user.nil? %>
+          <span><%= @post.not_exist_post_user %></span>
+          <% else %>
           <%= link_to(@post.user.name, user_show_path(@post.user)) %>
+          <% end %>
           <span>(投稿日: <%= @post.created_at_view %>)</span>
         </div>
       </div>
@@ -24,7 +28,11 @@
             <%= reply.body_view %>
             <div class="post_info clearfix">
               <div class="float-right">
+                <% if reply.user.nil? %>
+                <span><%= reply.not_exist_reply_user %></span>
+                <% else %>
                 <%= link_to(reply.user.name, user_show_path(reply.user)) %>
+                <% end %>
                 <span><%= reply.created_at_view %></span>
               </div>
             </div>

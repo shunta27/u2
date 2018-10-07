@@ -13,4 +13,8 @@ class PostDecorator < Draper::Decorator
     l(object.created_at, format: :YMD)
   end
 
+  def not_exist_post_user
+    '退会済みユーザ'
+  end
+
 end

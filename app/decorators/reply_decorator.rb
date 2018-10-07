@@ -9,4 +9,8 @@ class ReplyDecorator < Draper::Decorator
     l(object.created_at, format: :YMD)
   end
 
+  def not_exist_reply_user
+    '退会済みユーザ'
+  end
+
 end
