@@ -1,7 +1,7 @@
 ---
 ja:
   view:
-    site_title: "U2トーク"
+    site_title: "メンタルル"
   activerecord:
     errors:
       messages:
