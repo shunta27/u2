@@ -17,6 +17,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'twitter'
 gem 'pundit'
 gem "paranoia", "~> 2.2"
+gem 'exception_notification'
+gem 'slack-notifier'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
