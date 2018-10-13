@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'about', :to => 'home#about'
   get 'help', :to => 'home#help'
-  get 'inquiry', :to => 'home#inquiry'
+  # お問い合わせ
+  get 'inquiry', :to => 'inquiry#index'
+  post 'inquiry' => 'inquiry#confirm'
 
   devise_for :users, skip: :all
   devise_scope :user do
