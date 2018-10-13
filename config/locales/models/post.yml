@@ -4,6 +4,6 @@ ja:
       post: 投稿
     attributes:
       post:
-        subject: 名前
+        subject: タイトル
         body: 内容
         category_id: カテゴリー

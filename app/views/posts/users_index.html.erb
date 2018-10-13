@@ -18,7 +18,7 @@
           </div>
           <div class="col-10 col-sm-11 post_block">
             <span class="category <%= post.category.code %>"><%= post.category.name %></span>
-            <div class="post_title"><%= link_to(post.subject, edit_post_path(post)) %></div>
+            <div class="post_title"><%= link_to(post.subject, category_post_path(post.category, post)) %></div>
             <div class="post_footer text-right">
               <div class="edit_date mr-3">投稿日: <%= post.created_at_view %></div>
               <div class="editor"><%= link_to(post.user.name, user_show_path(post.user)) %></div>
