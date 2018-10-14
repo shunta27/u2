@@ -35,13 +35,13 @@ class ApplicationController < ActionController::Base
   def _render_404(e = nill)
     logger.info "Rendering 404 with exception: #{e.message}" if e
 
-    render template: 'errors/404', status: 404
+    render :layout => nil, template: 'errors/404', status: 404
   end
 
   def _render_500(e = nill)
     logger.error "Rendering 500 with exception: #{e.message}" if e
     ExceptionNotifier.notify_exception(e, :env => request.env, :data => {:message => "500 error"})
 
-    render template: 'errors/500', status: 500
+    render :layout => nil, template: 'errors/500', status: 500
   end
 end
