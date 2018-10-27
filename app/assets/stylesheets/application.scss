@@ -17,6 +17,30 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+// mq for bootstrap
+$breakpoint-up: (
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1000px)',
+  'xl': 'screen and (min-width: 1200px)',
+) !default;
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 999px)',
+  'xl': 'screen and (max-width: 1199px)',
+) !default;
+@mixin mq-up($breakpoint: md) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-down($breakpoint: md) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
 body {
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -54,6 +78,9 @@ nav {
   padding-bottom: 5px;
   margin-top: 27px;
   margin-bottom: 20px;
+  @include mq-down() {
+    font-size: 1.2rem;
+  }
 }
 .page_title_catgory {
   font-size: 1.0rem;
@@ -269,5 +296,112 @@ footer {
   .entry {
     margin-top: 20px;
     width: 100%;
+  }
+}
+
+.terms {
+  ul { padding: 0; }
+  p {
+    margin-bottom: 0.5rem;
+    @include mq-down() {
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+  }
+  .terms-title {
+    margin-bottom: 5px;
+  }
+  .terms-body {
+    margin-bottom: 1rem;
+  }
+  .terms-list {
+    margin: 5px 0;
+    padding-left: 1em;
+    li {
+      list-style-type: none;
+      counter-increment: number;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 0.2em;
+      @include mq-down() {
+        font-size: 0.8rem;
+        line-height: 1.7;
+      }
+    }
+    li::before {
+      content: counter(number) ".";
+      margin-right: 5px;
+      position: absolute;
+      left: -1em;
+      top: 0;
+    }
+    &--num {
+      margin: 0.5rem 0 0.5rem 2rem;
+      li {
+        counter-increment: number_num;
+        padding-left: 0.8em;
+      }
+      li::before {
+        content: "(" counter(number_num) ")";
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.privacy {
+  ul { padding: 0; }
+  p {
+    margin-bottom: 0.5rem;
+    @include mq-down() {
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+  }
+  .privacy-title {
+    margin-bottom: 5px;
+  }
+  .privacy-body {
+    margin-bottom: 1rem;
+  }
+  .privacy-list {
+    margin: 5px 0;
+    padding-left: 1em;
+    li {
+      list-style-type: none;
+      counter-increment: number;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 0.4em;
+      @include mq-down() {
+        font-size: 0.8rem;
+        line-height: 1.7;
+      }
+    }
+    li::before {
+      content: counter(number) ".";
+      margin-right: 5px;
+      position: absolute;
+      left: -1em;
+      top: 0;
+    }
+    &--num {
+      margin: 0.5rem 0 0.5rem 2rem;
+      li {
+        counter-increment: number_num;
+        padding-left: 0.8em;
+      }
+      li::before {
+        content: "(" counter(number_num) ")";
+        margin-right: 5px;
+      }
+      ol > li {
+        counter-increment: number_num_ol;
+        padding-left: 0.2em;
+      }
+      ol > li:before {
+        content: counter(number_num_ol) ".";
+      }
+    }
   }
 }
