@@ -19,6 +19,7 @@ gem 'pundit'
 gem "paranoia", "~> 2.2"
 gem 'exception_notification'
 gem 'slack-notifier'
+gem 'google-analytics-rails'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

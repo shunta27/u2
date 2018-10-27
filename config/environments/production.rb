@@ -89,4 +89,7 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  # GA
+  GA.tracker = 'UA-128186666-1'
 end

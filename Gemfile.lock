@@ -106,6 +106,7 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     http (3.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   draper
   exception_notification
   faker
+  google-analytics-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
