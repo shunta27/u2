@@ -74,7 +74,7 @@ nav {
 .page_title {
   display: inline-block;
   font-size: 1.4rem;
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px #24b47a;
   padding-bottom: 5px;
   margin-top: 27px;
   margin-bottom: 20px;
@@ -296,6 +296,62 @@ footer {
   .entry {
     margin-top: 20px;
     width: 100%;
+  }
+}
+
+.about {
+  ul { padding: 0; }
+  p {
+    margin-bottom: 0.5rem;
+    line-height: 2.0;
+    @include mq-down() {
+      font-size: 0.8rem;
+      line-height: 2.0;
+    }
+  }
+  .about-title {
+    // text-align: center;
+    margin-bottom: 0.25rem;
+    line-height: 2.0;
+    span {
+      display: inline-block;
+      border-bottom: solid 1px #24b47a;
+    }
+  }
+  .about-body {
+    margin-bottom: 1rem;
+  }
+  .about-list {
+    margin: 0.5rem 0;
+    padding-left: 1em;
+    li {
+      list-style-type: none;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 0.2em;
+      @include mq-down() {
+        font-size: 0.8rem;
+        line-height: 1.7;
+      }
+    }
+    li::before {
+      content: "・";
+      margin-right: 5px;
+      position: absolute;
+      left: -1em;
+      top: 0;
+    }
+    &--num {
+      margin: 0.5rem 0 0.5rem 2rem;
+      li {
+        counter-increment: number_num;
+        padding-left: 0.8em;
+      }
+      li::before {
+        content: "(" counter(number_num) ")";
+        margin-right: 5px;
+      }
+    }
   }
 }
 
