@@ -19,7 +19,7 @@
               <span class="category <%= post.category.code %>"><%= post.category.name %></span>
               <div class="post_title"><%= link_to(post.subject, category_post_path(post.category, post)) %></div>
               <div class="post_footer text-right">
-                <div class="edit_date mr-3">投稿日: <%= post.created_at_view %></div>
+                <div class="edit_date">投稿日: <%= post.created_at_view %></div>
                 <div class="editor">
                   <% if post.user.nil? %>
                   <span><%= post.not_exist_post_user %></span>
