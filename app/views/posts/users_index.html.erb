@@ -21,7 +21,11 @@
             <div class="post_title"><%= link_to(post.subject, category_post_path(post.category, post)) %></div>
             <div class="post_footer text-right">
               <div class="edit_date">投稿日: <%= post.created_at_view %></div>
+              <% if user_signed_in? && current_user.id == @user.id %>
+              <div class="editor"><%= link_to('編集', posts_edit_path(post.id)) %></div>
+              <% else %>
               <div class="editor"><%= link_to(post.user.name, user_show_path(post.user)) %></div>
+              <% end %>
             </div>
           </div>
         </div>
