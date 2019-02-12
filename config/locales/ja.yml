@@ -1,7 +1,7 @@
 ---
 ja:
   view:
-    site_title: "メンタルル"
+    site_title: "Mentally"
   activerecord:
     errors:
       messages:
