@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= page_title %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
 <%= render 'layouts/header' %>
-<div class="container">
-<%= render 'layouts/flash' %>
-<%= yield %>
-</div>
-<%= render 'layouts/footer' %>
+<!-- section start -->
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-9">
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+      <div class="column">
+        <%= render 'layouts/side' %>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section end -->
+<%= javascript_include_tag 'application' %>
 </body>
 </html>

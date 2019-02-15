@@ -1,50 +1,51 @@
-<div class="title_block">
-  <h1 class="page_title">プロフィール編集</h1>
-</div>
+<%= devise_error_messages %>
 
-<div class="signup_form col-12 col-sm-6 offset-sm-3">
 <%= form_for(resource, as: resource_name, url: user_path, html: { method: :put }) do |f| %>
-  <%= devise_error_messages %>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :name, 'お名前', class: 'col-form-label' %><br />
-      <%= f.text_field :name, class: 'form-control', autocomplete: 'name', placeholder: '' %>
+<div class="box">
+  <h1 class="title is-6">プロフィール編集</h1>
+  <hr>
+  <div class="field">
+    <%= f.label :name, 'お名前', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :name, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :email, 'メールアドレス', class: 'col-form-label' %><br />
-      <%= f.email_field :email, class: 'form-control', autocomplete: 'email', placeholder: '' %>
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <div class="control">
+      <%= f.email_field :email, class: 'input', placeholder: '' %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p class="help is-danger">
+      <%= resource.unconfirmed_email %>にて、アカウント認証メールを確認して下さい。
+    </p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'パスワード (変更する場合のみ入力して下さい)', class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= resource.unconfirmed_email %>にて、アカウント認証メールを確認して下さい。</div>
-  <% end %>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :password, 'パスワード', class: 'col-form-label' %><i>(変更する場合のみ入力して下さい)</i><br />
-      <%= f.password_field :password, class: 'form-control', placeholder: '' %>
+  <div class="field">
+    <%= f.label :password_confirmation, 'パスワードの確認', class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password_confirmation, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :password_confirmation, 'パスワードの確認', class: 'col-form-label' %><br />
-      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '' %>
+  <div class="field">
+    <%= f.label :current_password, '現在のパスワード', class: 'label' %>
+    <div class="control">
+      <%= f.password_field :current_password, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :current_password, '現在のパスワード', class: 'col-form-label' %><br />
-      <%= f.password_field :current_password, class: 'form-control', placeholder: '' %>
+  <div class="field">
+    <div class="control">
+      <%= f.submit '更新', class: 'button is-fullwidth' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.submit '更新', class: 'entry btn btn-primary' %>
-    </div>
-  </div>
-  <div class="text-center">
+  <div class="has-text-centered">
     <%= link_to '退会はこちらから', user_unsubscribe_path(resource) %>
   </div>
-<% end %>
 </div>
+<% end %>

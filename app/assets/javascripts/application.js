@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
-//= require popper
-//= require bootstrap-sprockets
+$(document).ready(function() {
+  $(".navbar-burger").click(function() {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
+  });
+});

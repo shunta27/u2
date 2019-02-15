@@ -1,16 +1,10 @@
-  <div class="col-sm-4">
-    <div class="sidebar mt-1 mt-sm-5">
-      <div class="title_block">
-        <h2 class="page_title page_title_catgory">カテゴリー</h1>
-      </div>
-      <div class="category_list">
-        <ul class="list-group list-group-flush">
-        <% @categories.each do |category| %>
-          <li class="list-group-item">
-          <%= link_to(category.name, category_posts_path(category)) %>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="box">
+  <aside class="menu">
+    <p class="menu-label">カテゴリ一覧</p>
+    <ul class="menu-list">
+      <% @categories.each do |category| %>
+      <li><%= link_to(category.name, category_posts_path(category)) %></li>
+      <% end %>
+    </ul>
+  </aside>
+</div>

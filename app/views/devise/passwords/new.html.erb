@@ -1,26 +1,21 @@
-<div class="title_block">
-  <h1 class="page_title">パスワード再設定</h1>
-</div>
-
-<div class="signup_form col-12 col-sm-6 offset-sm-3">
 <%= form_for(resource, as: resource_name, url: password_path, html: { method: :post }) do |f| %>
-  <%= devise_error_messages %>
-  <div class="form-group row">
-    <div class="col-sm-12">
+<div class="box">
+  <h1 class="title is-6">パスワード再設定</h1>
+  <hr>
+  <div class="has-text-left is-medium">
     <p>ご登録のメールアドレスを入力してください。</p>
     <p>パスワードを再設定するためのメールをお送りいたします。</p>
+  </div>
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <div class="control">
+      <%= f.email_field :email, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :email, 'メールアドレス', class: 'col-form-label' %><br />
-      <%= f.email_field :email, class: 'form-control', autocomplete: 'email', placeholder: '' %>
+  <div class="field">
+    <div class="control">
+      <%= f.submit '送信', class: 'button is-fullwidth' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-    <%= f.submit '送信', class: 'entry btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
 </div>
+<% end %>

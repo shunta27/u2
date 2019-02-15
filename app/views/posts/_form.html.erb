@@ -1,36 +1,39 @@
-<div class="signup_form col-12 col-sm-6 offset-sm-3">
-<%= form_for(@post, :url => (@post.new_record? ? posts_new_path : posts_edit_path)) do |f| %>
-  <% if @post.errors.any? %>
-    <div class="errors alert alert-danger">
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-group row">
-      <div class="col-sm-12">
-        <%= f.label :subject, 'タイトル', class: 'col-form-label' %><br />
-        <%= f.text_field :subject, class: 'form-control', placeholder: 'わからないこと、聞きたいことをお書きください' %>
-      </div>
-  </div>
-  <div class="form-group row">
-      <div class="col-sm-12">
-        <%= f.label :category_id, 'カテゴリー', class: 'col-form-label' %><br />
-        <%= f.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, { :prompt => '選択してください' }, { class: 'form-control'} %>
-      </div>
-  </div>
-  <div class="form-group row">
-      <div class="col-sm-12">
-        <%= f.label :body, '本文', class: 'col-form-label' %><br />
-        <%= f.text_area :body, size: '20x10', class: 'form-control', placeholder: '質問内容をお書きください' %>
-      </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.submit (@post.new_record? ? '投稿' : '更新'), class: 'entry btn btn-primary' %>
-    </div>
-  </div>
+<% if @post.errors.any? %>
+<div class="notification is-danger">
+<% @post.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
 <% end %>
 </div>
+<% end %>
+
+<%= form_for(@post, :url => (@post.new_record? ? posts_new_path : posts_edit_path)) do |f| %>
+<div class="box">
+  <h1 class="title is-6"><%= @post.new_record? ? '質問を投稿' : '質問を更新' %></h1>
+  <hr>
+  <div class="field">
+    <%= f.label :subject, 'タイトル', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :subject, class: 'input', placeholder: 'わからないこと、聞きたいことをお書きください' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :category_id, 'カテゴリー', class: 'label' %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, { :prompt => '選択してください' } %>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :body, '本文', class: 'label' %>
+    <div class="control">
+      <%= f.text_area :body, size: '20x10', class: 'textarea', placeholder: '質問内容をお書きください' %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <%= f.submit (@post.new_record? ? '投稿' : '更新'), class: 'button is-fullwidth' %>
+    </div>
+  </div>
+</div>
+<% end %>

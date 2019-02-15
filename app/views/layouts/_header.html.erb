@@ -1,48 +1,45 @@
-<header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to(root_path, class: 'navbar-brand') do %>
-    <%= image_tag('logo.png', { alt: 'Mentally', class: 'logo' }) %>
-    <% end %>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to 'Mentallyとは', about_path, class: 'nav-link' %>
-        </li>
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to '質問する', new_post_path, :class => 'nav-link' %>
-        </li>
-        <% end %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            カテゴリ
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% @categories.each do |category| %>
-            <%= link_to(category.name, category_posts_path(category), :class => 'dropdown-item') %>
-          <% end %>
-          </div>
-        </li>
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'マイページ', user_show_path(current_user), :class => 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", logout_path, method: :delete, :class => 'nav-link'%>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to '登録', sign_up_path, :class => 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", login_path, :class => 'nav-link'%>
-        </li>
-        <% end %>
-      </ul>
+<!-- nav start-->
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <%= link_to root_path, class: 'navbar-item' do %>
+        <%= image_tag 'logo.png', { alt: 'Mentally', class: 'logo' } %>
+      <% end %>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-  </nav>
-</header>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+      <div class="navbar-end">
+        <%= link_to 'Mentallyとは', about_path, class: 'navbar-item' %>
+        <% if user_signed_in? %>
+        <%= link_to '質問する', new_post_path, :class => 'navbar-item' %>
+        <% end %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+              <%= link_to user_show_path(current_user), :class => 'button is-primary' do %>
+                <strong>マイページ</strong>
+              <% end %>
+              <%= link_to logout_path, method: :delete, :class => 'button is-light' do %>
+                <i class="fas fa-user fa-fw"></i>ログアウト
+              <% end %>
+            <% else %>
+              <%= link_to sign_up_path, :class => 'button is-primary' do %>
+                <strong>登録</strong>
+              <% end %>
+              <%= link_to login_path, :class => 'button is-light' do %>
+                <i class="fas fa-user fa-fw"></i>ログイン
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- nav end -->

@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'about', :to => 'home#about'
-  get 'help', :to => 'home#help'
-  get 'terms', :to => 'home#terms'
-  get 'privacy', :to => 'home#privacy'
+  # get 'help', :to => 'home#help'
+  # get 'terms', :to => 'home#terms'
+  # get 'privacy', :to => 'home#privacy'
   # お問い合わせ
   get 'inquiry', :to => 'inquiry#index'
   post 'inquiry' => 'inquiry#confirm'

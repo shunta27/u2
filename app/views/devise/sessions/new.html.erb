@@ -1,36 +1,34 @@
-<div class="title_block">
-  <h1 class="page_title">ログイン</h1>
-</div>
+<%= devise_error_messages %>
 
-<div class="signup_form col-12 col-sm-6 offset-sm-3">
 <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :email, 'メールアドレス', class: 'col-form-label' %><br />
-      <%= f.email_field :email, class: 'form-control', autocomplete: 'email', placeholder: '' %>
+<div class="box">
+  <h1 class="title is-6">ログイン</h1>
+  <hr>
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <div class="control">
+      <%= f.email_field :email, class: 'input', placeholder: '' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :password, 'パスワード', class: 'col-form-label' %><br />
-      <%= f.password_field :password, class: 'form-control', autocomplete: 'new-password', placeholder: '' %>
+  <div class="field">
+    <%= f.label :password, 'パスワード', class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password, class: 'input', placeholder: '' %>
     </div>
   </div>
   <% if devise_mapping.rememberable? -%>
-  <div class="form-check">
-    <%= f.check_box :remember_me, class: 'form-check-input position-static' %>
-    <%= f.label :remember_me, 'ログイン情報を記憶する', class: 'chk_label' %>
+  <div class="field">
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me, 'ログイン情報を記憶する', class: 'checkbox is-size-7' %>
   </div>
   <% end %>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.submit 'ログイン', class: 'entry btn btn-primary' %>
+  <div class="field">
+    <div class="control">
+      <%= f.submit 'ログイン', class: 'button is-fullwidth' %>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12 text-center">
-      <%= link_to('パスワードを忘れた方はこちら', new_user_password_path)%>
-    </div>
+  <div class="has-text-centered">
+    <%= link_to('パスワードを忘れた方はこちら', new_user_password_path)%>
   </div>
-<% end %>
 </div>
+<% end %>

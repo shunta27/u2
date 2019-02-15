@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def about; end
-  def help; end
-  def terms; end
-  def privacy; end
+  # def help; end
+  # def terms; end
+  # def privacy; end
 end

@@ -1,9 +1,7 @@
-<div class="title_block">
-  <h1 class="page_title">退会ページ</h1>
-</div>
-
-<div class="col-12 col-sm-6 offset-sm-3">
-  <div class="text-center">
-  <%= link_to '退会する', user_path, data: { confirm: '本当に退会しますか？' }, method: :delete %>
+<div class="box">
+  <h1 class="title is-6">退会ページ</h1>
+  <hr>
+  <div class="has-text-centered">
+    <%= link_to '退会する', user_path, data: { confirm: '本当に退会しますか？' }, method: :delete %>
   </div>
 </div>

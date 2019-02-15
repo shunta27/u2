@@ -1,76 +1,71 @@
-<div class="row">
-  <div class="col-sm-8">
-    <div class="title_block">
-      <h1 class="page_title"><%= @post.subject %></h1>
-    </div>
+<% if @reply.errors.any? %>
+<div class="notification is-danger">
+  <% @reply.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+  <% end %>
+</div>
+<% end %>
 
-    <div class="post col-12 col-sm-10 offset-sm-1">
-      <div class="post_info clearfix">
-        <div class="float-right">
-          <% if @post.user.nil? %>
-          <span><%= @post.not_exist_post_user %></span>
-          <% else %>
-          <%= link_to(@post.user.name, user_show_path(@post.user)) %>
-          <% end %>
-          <span>(投稿日: <%= @post.created_at_view %>)</span>
-        </div>
-      </div>
-      <div class="post_body mt-2">
+<div class="box">
+  <h1 class="title is-6"><%= @post.subject %></h1>
+  <hr>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <strong><% if @post.user.nil? %><%= @post.not_exist_post_user %><% else %><%= link_to(@post.user.name, user_show_path(@post.user)) %><% end %></strong>
         <%= @post.body_view %>
+        <small class="has-text-grey">投稿日: <%= @post.created_at_view %></small>
       </div>
-
+      <!-- reply start -->
       <% replies = ReplyDecorator.decorate_collection(@post.replies) %>
       <% if replies.present? %>
-      <div class="post_replies mt-5">
         <% replies.each do |reply| %>
-        <div class="post_reply">
-          <div class="post_reply_body">
-            <%= reply.body_view %>
-            <div class="post_info clearfix">
-              <div class="float-right">
-                <% if reply.user.nil? %>
-                <span><%= reply.not_exist_reply_user %></span>
-                <% else %>
-                <%= link_to(reply.user.name, user_show_path(reply.user)) %>
-                <% end %>
-                <span><%= reply.created_at_view %></span>
-              </div>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-48x48">
+              <img class="is-rounded" src="https://bulma.io/images/placeholders/96x96.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <strong><% if reply.user.nil? %><%= reply.not_exist_post_user %><% else %><%= link_to(reply.user.name, user_show_path(reply.user)) %><% end %></strong>
+              <%= reply.body_view %>
+              <small class="has-text-grey">投稿日: <%= reply.created_at_view %></small>
             </div>
           </div>
-        </div>
+        </article>
         <% end %>
-      </div>
       <% end %>
-
-      <% if user_signed_in? %>
-      <hr>
-      <div class="post_reply_form">
-        <%= form_for(@reply, :url => category_reply_path) do |f| %>
-        <% if @reply.errors.any? %>
-          <div class="errors alert alert-danger">
-            <ul>
-            <% @reply.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-          <%= f.hidden_field :post_id, value: @post.id %>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              <%= f.label :body, 'コメント', class: 'col-form-label' %><br />
-              <%= f.text_area :body, size: '20x3', class: 'form-control', placeholder: '' %>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              <%= f.submit '投稿', class: 'btn btn-primary' %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
+      <!-- reply end -->
+    </div>
+  </article>
+  <% if user_signed_in? %>
+  <!-- comment form start -->
+  <%= form_for @reply, :url => category_reply_path, :html => {:class => "media"} do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="field">
+      <p class="control">
+        <%= f.text_area :body, size: '20x3', class: 'textarea', placeholder: '' %>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <%= f.submit 'コメントする', class: 'button is-fullwidth' %>
+      </p>
     </div>
   </div>
-    <%= render 'layouts/side' %>
+  <% end %>
+  <!-- comment form end -->
+  <% end %>
 </div>

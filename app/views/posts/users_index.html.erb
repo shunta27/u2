@@ -1,38 +1,37 @@
-<div class="title_block">
-  <h1 class="page_title"><%= "#{@user.name}の質問一覧" %></h1>
-</div>
-
-<div class="profile col-12 col-sm-8 offset-sm-2">
+<div class="box">
+  <h1 class="title is-6"><%= "#{@user.name}の質問一覧" %></h1>
+  <hr>
   <% if @posts.present? %>
-  <div class="post_list">
-    <ul>
     <% @posts.each do |post| %>
     <% post = post.decorate %>
-      <li>
-        <div class="row">
-          <div class="col-2 col-sm-1 post_block entry_block">
-            <dl class="">
-              <dt class="entry<% if post.reply_count == 0 %> txt-0<% end %>">回答</dt>
-              <dd class="unsolved<% if post.reply_count == 0 %> txt-0<% end %>"><%= post.reply_count %></dd>
-            </dl>
-          </div>
-          <div class="col-10 col-sm-11 post_block">
-            <span class="category <%= post.category.code %>"><%= post.category.name %></span>
-            <div class="post_title"><%= link_to(post.subject, category_post_path(post.category, post)) %></div>
-            <div class="post_footer text-right">
-              <div class="edit_date">投稿日: <%= post.created_at_view %></div>
+    <article class="content post">
+      <div class="title is-size-4">
+        <%= link_to(post.subject, category_post_path(post.category, post)) %>
+      </div>
+      <div class="media">
+        <div class="media-left">
+          <p class="image is-32x32">
+            <img class="is-rounded" src="http://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
               <% if user_signed_in? && current_user.id == @user.id %>
-              <div class="editor"><%= link_to('編集', posts_edit_path(post.id)) %></div>
+              <%= link_to('編集', posts_edit_path(post.id)) %>
               <% else %>
-              <div class="editor"><%= link_to(post.user.name, user_show_path(post.user)) %></div>
+              <% if post.user.nil? %><%= post.not_exist_post_user %><% else %><%= link_to(post.user.name, user_show_path(post.user)) %><% end %>
               <% end %>
-            </div>
+               &nbsp;<span class="tag"><%= post.category.name %></span>
+            </p>
           </div>
         </div>
-      </li>
+        <div class="media-right">
+          <span class="has-text-grey-light"><i class="fa fa-comments"></i> <%= post.reply_count %></span>
+        </div>
+      </div>
+    </article>
     <% end %>
-    </ul>
-  </div>
-  <%= paginate @posts %>
+    <%= paginate @posts %>
   <% end %>
 </div>
