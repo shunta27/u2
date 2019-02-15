@@ -13,7 +13,7 @@ gem 'bcrypt', '~> 3.1.12'
 gem 'kaminari'
 gem 'draper'
 gem 'devise'
-gem 'bootstrap', '~> 4.1.1'
+gem "bulma-rails"
 gem 'twitter'
 gem 'pundit'
 gem "paranoia", "~> 2.2"
