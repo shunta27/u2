@@ -1,0 +1,14 @@
+{
+  "name": "u2-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shunta ichikawa",
+  "license": "ISC",
+  "dependencies": {
+    "bulma-utilities": "^0.3.6"
+  }
+}
