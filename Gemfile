@@ -20,6 +20,8 @@ gem "paranoia", "~> 2.2"
 gem 'exception_notification'
 gem 'slack-notifier'
 gem 'google-analytics-rails'
+gem 'carrierwave'
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
