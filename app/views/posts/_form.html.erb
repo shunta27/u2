@@ -8,7 +8,7 @@
 
 <%= form_for(@post, :url => (@post.new_record? ? posts_new_path : posts_edit_path)) do |f| %>
 <div class="box">
-  <h1 class="title is-6"><%= @post.new_record? ? '質問を投稿' : '質問を更新' %></h1>
+  <h1 class="title is-5"><%= @post.new_record? ? '質問を投稿' : '質問を更新' %></h1>
   <hr>
   <div class="field">
     <%= f.label :subject, 'タイトル', class: 'label' %>

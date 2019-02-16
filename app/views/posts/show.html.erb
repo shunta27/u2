@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="box">
-  <h1 class="title is-6"><%= @post.subject %></h1>
+  <h1 class="title is-5"><%= @post.subject %></h1>
   <hr>
   <article class="media">
     <figure class="media-left">
@@ -28,12 +28,12 @@
         <article class="media">
           <figure class="media-left">
             <p class="image is-48x48">
-              <img class="is-rounded" src="https://bulma.io/images/placeholders/96x96.png">
+              <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
             </p>
           </figure>
           <div class="media-content">
             <div class="content">
-              <strong><% if reply.user.nil? %><%= reply.not_exist_post_user %><% else %><%= link_to(reply.user.name, user_show_path(reply.user)) %><% end %></strong>
+              <strong><% if reply.user.nil? %><%= reply.not_exist_reply_user %><% else %><%= link_to(reply.user.name, user_show_path(reply.user)) %><% end %></strong>
               <%= reply.body_view %>
               <small class="has-text-grey">投稿日: <%= reply.created_at_view %></small>
             </div>
