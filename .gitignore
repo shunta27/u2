@@ -18,3 +18,4 @@
 .env
 
 /static
+/node_modules
