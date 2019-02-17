@@ -15,9 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @current_user.avatar.cache! unless @current_user.avatar.blank?
+    super
+  end
 
   # PUT /resource
   # def update
@@ -63,4 +64,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_update_path_for(resource)
+    sign_in_after_change_password? ? user_show_path(resource) : new_session_path(resource_name)
+  end
 end

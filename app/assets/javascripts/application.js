@@ -14,9 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(document).ready(function() {
-  $(".navbar-burger").click(function() {
-    $(".navbar-burger").toggleClass("is-active");
-    $(".navbar-menu").toggleClass("is-active");
+$(function(){
+  // hamburger menu action
+  $(document).ready(function() {
+    $(".navbar-burger").click(function() {
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+    });
+  });
+  // file input field change action
+  $('#user_avatar').on('change', function(){
+    var file = this.files[0];
+    if(file != null) {
+      $('#file_input_name').text(file.name)
+    }
   });
 });

@@ -135,6 +135,7 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      extension_whitelist_error: は「jpg,jpeg,gif,png」形式の画像をアップロードしてください
     template:
       body: 次の項目を確認してください
       header:
