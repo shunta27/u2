@@ -6,7 +6,8 @@ RUN apt-get update -qq && apt-get install -y \
     software-properties-common \
     build-essential \
     mysql-client \
-    nodejs
+    nodejs \
+    imagemagick
 
 RUN gem install bundler
 

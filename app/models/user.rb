@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     unless avatar?
       return 'https://main-ichikawa-net.ssl-lolipop.jp/u2/images/dummy128.png'
     end
-    avatar.url
+    avatar.thumb.url
   end
 
 end

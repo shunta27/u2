@@ -22,6 +22,7 @@ gem 'slack-notifier'
 gem 'google-analytics-rails'
 gem 'carrierwave'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
+gem 'rmagick'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
