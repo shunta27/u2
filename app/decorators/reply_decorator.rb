@@ -13,4 +13,9 @@ class ReplyDecorator < Draper::Decorator
     '退会済みユーザ'
   end
 
+  def user_avatar_icon_url
+    return 'https://main-ichikawa-net.ssl-lolipop.jp/u2/images/dummy128.png' if object.user.nil?
+    object.user.avatar_icon_url
+  end
+
 end

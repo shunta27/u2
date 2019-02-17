@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20190216121636) do
     t.string   "name",                   limit: 190,   default: "", null: false
     t.string   "profile_text",           limit: 1000,  default: ""
     t.string   "email",                  limit: 190,   default: "", null: false
-    t.text     "avatar_url",             limit: 65535
+    t.text     "avatar",                 limit: 65535
     t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 190
     t.datetime "reset_password_sent_at"

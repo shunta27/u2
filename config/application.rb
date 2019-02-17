@@ -20,5 +20,7 @@ module App
 
     config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
     # config.action_view.field_error_proc = proc { |html_tag, instance| "<div class='has-error'>#{html_tag}</div>".html_safe }
+
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end

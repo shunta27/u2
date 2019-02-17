@@ -12,7 +12,7 @@
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+        <%= image_tag(@post.user_avatar_icon_url, class: 'is-rounded') %>
       </p>
     </figure>
     <div class="media-content">
@@ -28,7 +28,7 @@
         <article class="media">
           <figure class="media-left">
             <p class="image is-48x48">
-              <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+              <%= image_tag(reply.user_avatar_icon_url, class: 'is-rounded') %>
             </p>
           </figure>
           <div class="media-content">
@@ -50,7 +50,7 @@
   <%= f.hidden_field :post_id, value: @post.id %>
   <figure class="media-left">
     <p class="image is-64x64">
-      <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      <%= image_tag(current_user.avatar_icon_url, class: 'is-rounded') %>
     </p>
   </figure>
   <div class="media-content">

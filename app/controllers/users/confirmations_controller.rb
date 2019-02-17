@@ -25,7 +25,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
-      messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+      messages = resource.errors.full_messages.map { |msg| content_tag(:p, msg) }.join
       respond_with_navigational(resource.errors, :status => :unprocessable_entity){ redirect_to root_path, notice: messages }
     end
   end
