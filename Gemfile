@@ -23,6 +23,7 @@ gem 'google-analytics-rails'
 gem 'carrierwave'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
 gem 'rmagick'
+gem 'mini_magick'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
