@@ -16,7 +16,6 @@ ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install
 
-ENV APP_HOME /app
+ENV APP_HOME /web
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-ADD . $APP_HOME
