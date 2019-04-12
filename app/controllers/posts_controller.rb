@@ -3,14 +3,20 @@ class PostsController < ApplicationController
 
   def index
     @category = @categories.find(params[:category_id])
-    @posts = Post.page(params[:page]).per(10)
-    @posts = @posts.where(category_id: params[:category_id]).default_order
+    @posts = Post
+              .where(category_id: params[:category_id])
+              .page(params[:page])
+              .per(6)
+              .default_order
   end
 
   def users_index
     @user = User.find(params[:user_show_id]).decorate
-    @posts = Post.page(params[:page]).per(10)
-    @posts = @posts.where(user_id: params[:user_show_id]).default_order
+    @posts = Post
+              .where(user_id: params[:user_show_id])
+              .page(params[:page])
+              .per(10)
+              .default_order
   end
 
   def show

@@ -36,8 +36,9 @@ RSpec.configure do |config|
   DatabaseCleaner.allow_remote_database_url = true
 
   config.before(:suite) do
+    # load Rails.root.join('db', 'seeds.rb')
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation, { :except => %w{categories} })
   end
 
   config.before(:each) do
