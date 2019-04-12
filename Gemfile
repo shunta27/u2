@@ -13,10 +13,10 @@ gem 'bcrypt', '~> 3.1.12'
 gem 'kaminari'
 gem 'draper'
 gem 'devise'
-gem "bulma-rails"
+gem 'bulma-rails'
 gem 'twitter'
 gem 'pundit'
-gem "paranoia", "~> 2.2"
+gem 'paranoia', '~> 2.2'
 gem 'exception_notification'
 gem 'slack-notifier'
 gem 'google-analytics-rails'
@@ -36,9 +36,10 @@ end
 group :development, :test do
   gem 'rubocop', require: false
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
   gem 'faker'
   gem 'pry-byebug'
-  # gem 'debugger'
 end
 
 group :production do
