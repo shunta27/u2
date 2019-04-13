@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :before_action
   before_action :configure_permitted_parameters, if: :devise_controller?
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  unless Rails.env.development?
+  unless Rails.env.development? || Rails.env.test?
     rescue_from Exception, with: :_render_500
     rescue_from ActiveRecord::RecordNotFound, with: :_render_404
     rescue_from ActionController::RoutingError, with: :_render_404
   end
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def routing_error
     raise ActionController::RoutingError, params[:path]

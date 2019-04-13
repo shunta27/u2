@@ -45,9 +45,9 @@ RSpec.describe PostsController, type: :controller do
       end
     end
     context 'not login' do
-      it 'returns http internal_server_error (Pundit::NotAuthorizedError)' do
+      it 'returns http redirect (Pundit::NotAuthorizedError)' do
         subject
-        expect(response).to have_http_status(:internal_server_error)
+        expect(response).to have_http_status(:redirect)
       end
     end
   end
@@ -78,9 +78,9 @@ RSpec.describe PostsController, type: :controller do
       end
     end
     context 'not login' do
-      it 'returns http internal_server_error (Pundit::NotAuthorizedError)' do
+      it 'returns http redirect (Pundit::NotAuthorizedError)' do
         subject
-        expect(response).to have_http_status(:internal_server_error)
+        expect(response).to have_http_status(:redirect)
       end
     end
   end
