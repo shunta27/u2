@@ -1,4 +1,4 @@
-class Reply < ActiveRecord::Base
+class Reply < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :category

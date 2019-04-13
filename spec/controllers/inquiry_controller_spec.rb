@@ -14,10 +14,12 @@ RSpec.describe InquiryController, type: :controller do
       allow(InquirySend).to receive_message_chain(:send_admin_mail, :deliver_now)
     end
     subject {
-      post :confirm, inquiry: {
-        name: 'test',
-        email: Faker::Internet.email,
-        body: 'test message'
+      post :confirm, params: {
+        inquiry: {
+          name: 'test',
+          email: Faker::Internet.email,
+          body: 'test message'
+        }
       }
     }
     it 'returns http redirect' do

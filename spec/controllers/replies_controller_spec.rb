@@ -12,13 +12,15 @@ RSpec.describe RepliesController, type: :controller do
   describe 'GET #create' do
     before do
       login_user test_login_user
-      request.env['HTTP_REFERER'] = 'where_i_came_from'
     end
     subject {
-      post :create, {
+      post :create, params: {
         category_id: category.id,
         id: post_data.id,
-        reply: { post_id: post_data.id, body: 'test' }
+        reply: {
+          post_id: post_data.id,
+          body: 'test'
+        }
       }
     }
     it 'returns http redirect' do

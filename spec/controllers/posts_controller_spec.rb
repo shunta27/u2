@@ -13,7 +13,7 @@ RSpec.describe PostsController, type: :controller do
   describe 'GET #index' do
     Category.find_each do | category |
       it 'returns http success' do
-        get :index, { category_id: category.id }
+        get :index, params: { category_id: category.id }
         expect(response).to have_http_status(:success)
       end
     end
@@ -21,14 +21,14 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET #users_index' do
     it 'returns http success' do
-      get :users_index, { user_show_id: test_login_user.id }
+      get :users_index, params: { user_show_id: test_login_user.id }
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET #show' do
     it 'returns http success' do
-      get :show, { id: post_data.id, user_show_id: test_login_user.id }
+      get :show, params: { id: post_data.id, user_show_id: test_login_user.id }
       expect(response).to have_http_status(:success)
     end
   end
@@ -56,7 +56,15 @@ RSpec.describe PostsController, type: :controller do
     before do
       login_user test_login_user
     end
-    subject { post :create, post: { subject: 'test', category_id: category.id, body: 'test' } }
+    subject {
+      post :create, params: {
+        post: {
+          subject: 'test',
+          category_id: category.id,
+          body: 'test'
+        }
+      }
+    }
     it 'returns http redirect' do
       subject
       expect(response).to have_http_status(:redirect)
@@ -67,7 +75,11 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    subject { get :edit, { id: post_data.id } }
+    subject {
+      get :edit, params: {
+        id: post_data.id
+      }
+    }
     context 'login' do
       before do
         login_user test_login_user
@@ -91,7 +103,17 @@ RSpec.describe PostsController, type: :controller do
     end
     let(:subject_s) { 'test update subject' }
     let(:body_s) { 'test update body' }
-    subject { patch :update, { id: post_data.id, post: { subject: subject_s, category_id: category.id, body: body_s } } }
+    subject {
+      patch :update,
+      params: {
+        id: post_data.id,
+        post: {
+          subject: subject_s,
+          category_id: category.id,
+          body: body_s
+        }
+      }
+    }
     it 'returns http success' do
       subject
       expect(response).to have_http_status(:redirect)

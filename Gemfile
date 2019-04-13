@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'rails', '4.2.11'
-gem 'mysql2', '~> 0.3.13'
+gem 'rails', '5.2.3'
+gem 'mysql2', '< 0.6.0', '>= 0.4.4'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '4.2.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.12'
 gem 'kaminari'
-gem 'draper'
+gem 'draper', '3.1.0'
 gem 'devise'
 gem 'bulma-rails'
 gem 'twitter'
@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
 gem 'rmagick'
 gem 'mini_magick'
+gem 'activemodel-serializers-xml'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -31,6 +32,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'web-console', '~> 3.0'
 end
 
 group :development, :test do
