@@ -1,40 +1,39 @@
-<div class="title_block">
-  <h1 class="page_title">お問い合わせ</h1>
-</div>
+<% @page_title = 'お問い合わせ' %>
 
-<div class="signup_form col-12 col-sm-6 offset-sm-3">
-  <%= form_for(@inquiry, :url => inquiry_path) do |f| %>
-  <% if @inquiry.errors.any? %>
-    <div class="errors alert alert-danger">
-      <ul>
-      <% @inquiry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :name, 'お名前', class: 'col-form-label' %><br />
-      <%= f.text_field :name, class: 'form-control', placeholder: '' %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :email, 'メールアドレス', class: 'col-form-label' %><br />
-      <%= f.email_field :email, class: 'form-control', autocomplete: 'email', placeholder: '' %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.label :body, '本文', class: 'col-form-label' %><br />
-      <%= f.text_area :body, size: '20x10', class: 'form-control', placeholder: '' %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <%= f.submit '送信', class: 'entry btn btn-primary' %>
-    </div>
-  </div>
-  <% end %>
+<% if @inquiry.errors.any? %>
+<div class="notification is-danger">
+<% @inquiry.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
 </div>
+<% end %>
+
+<%= form_for(@inquiry, :url => inquiry_path) do |f| %>
+<div class="box">
+  <h1 class="title is-5"><%= 'お問い合わせ' %></h1>
+  <hr>
+  <div class="field">
+    <%= f.label :name, 'お名前', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :name, class: 'input', placeholder: '' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :email, class: 'input', placeholder: '' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :body, '本文', class: 'label' %>
+    <div class="control">
+      <%= f.text_area :body, size: '20x10', class: 'textarea', placeholder: '質問内容をお書きください' %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <%= f.submit '送信', class: 'button is-fullwidth' %>
+    </div>
+  </div>
+</div>
+<% end %>
