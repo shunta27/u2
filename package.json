@@ -9,6 +9,7 @@
   "author": "shunta ichikawa",
   "license": "ISC",
   "dependencies": {
+    "bulma": "^0.7.4",
     "bulma-utilities": "^0.3.6"
   }
 }
