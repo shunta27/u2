@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon_pkg/apple-touch-icon.png', {:rel => 'apple-touch-icon', :sizes => '120x120', :type => 'image/png'} %>
   <%= favicon_link_tag 'favicon_pkg/favicon.ico', {:rel => 'icon', :sizes => '48x48', :type => 'image/png'} %>
-  <%= favicon_link_tag 'favicon_pkg/favicon-32x32.ico', {:rel => 'icon', :sizes => '32x32', :type => 'image/png'} %>
-  <%= favicon_link_tag 'favicon_pkg/favicon-16x16.ico', {:rel => 'icon', :sizes => '16x16', :type => 'image/png'} %>
   <title><%= page_title %></title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_bundle_tag 'style', media: 'all' %>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
@@ -31,6 +29,7 @@
 </section>
 <!-- section end -->
 <%= render 'layouts/footer' %>
-<%= javascript_include_tag 'application' %>
+<%= javascript_bundle_tag 'app' %>
+<%= javascript_bundle_tag 'style' %>
 </body>
 </html>

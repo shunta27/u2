@@ -5,5 +5,10 @@
 /tmp
 /static
 /node_modules
+
 /public/uploads/tmp
+/public/assets/dist/javascripts
+/public/assets/dist/stylesheets
+/public/assets/manifest.json
+
 .env
