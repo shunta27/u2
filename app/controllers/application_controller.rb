@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :before_action
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  unless Rails.env.development? || Rails.env.test?
+  if Rails.env.production?
     rescue_from Exception, with: :_render_500
     rescue_from ActiveRecord::RecordNotFound, with: :_render_404
     rescue_from ActionController::RoutingError, with: :_render_404
@@ -28,12 +28,14 @@ class ApplicationController < ActionController::Base
     @categories = Category.default_order.all
   end
 
-  def user_not_authorized
+  def user_not_authorized(e = nill)
+    logger.info "Not Authorized Error: #{e.message}" if e
     redirect_to(request.referrer || root_path)
   end
 
   def _render_404(e = nill)
     logger.info "Rendering 404 with exception: #{e.message}" if e
+    ExceptionNotifier.notify_exception(e, :env => request.env, :data => {:message => "404 error"})
 
     render :layout => nil, template: 'errors/404', status: 404
   end

@@ -53,7 +53,7 @@ Rails.application.routes.draw do
     post '/posts/:id', :to => 'replies#create', :as => 'reply'
   end
 
-  unless Rails.env.development? || Rails.env.test?
+  if Rails.env.production?
     get '*not_found' => 'application#routing_error'
     post '*not_found' => 'application#routing_error'
   end
