@@ -7,7 +7,7 @@
     "watch": "webpack --mode development --watch --config webpack.config.js",
     "build:dev": "webpack --progress --mode=development --config webpack.config.js",
     "build:pro": "webpack --progress --mode=production --config webpack.config.js",
-    "heroku-prebuild": "npm run build:pro"
+    "heroku-postbuild": "npm run build:pro"
   },
   "author": "shunta ichikawa",
   "license": "ISC",
