@@ -1,4 +1,4 @@
-class CreateReplies < ActiveRecord::Migration
+class CreateReplies < ActiveRecord::Migration[4.2]
   def change
     create_table :replies, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
       t.references :user,  index: true, foreign_key: false
