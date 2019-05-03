@@ -19,16 +19,19 @@ jobs:
           command: sleep 1
       - run:
           name: "before_test: setup npm install"
-          command: docker-compose run web npm install
+          command: docker exec -it $HEROKU_APP_NAME npm install
       - run:
           name: "before_test: setup npm run build:pro"
-          command: docker-compose run web npm run build:pro
+          command: docker exec -it $HEROKU_APP_NAME npm run build:pro
       - run:
-          name: "before_test: setup db"
-          command: docker-compose run web rails db:create db:migrate db:seed:category db:seed:user
+          name: "before_test: setup db migration"
+          command: docker exec -it $HEROKU_APP_NAME rails db:create db:migrate
+      - run:
+          name: "before_test: setup db seed"
+          command: docker exec -it $HEROKU_APP_NAME rails db:seed:category db:seed:user
       - run:
           name: test
-          command: docker-compose run web bundle exec rspec
+          command: docker exec -it -e RAILS_ENV=test $HEROKU_APP_NAME bundle exec rspec
       - run:
           name: docker-compose down
           command: docker-compose down
