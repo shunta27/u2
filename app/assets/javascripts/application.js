@@ -1,3 +1,6 @@
+import Rails from 'rails-ujs'
+Rails.start()
+
 $(function(){
   // hamburger menu action
   $(document).ready(function() {
