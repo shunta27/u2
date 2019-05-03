@@ -25,10 +25,10 @@ jobs:
           command: docker exec -it $HEROKU_APP_NAME npm run build:pro
       - run:
           name: "before_test: setup db migration"
-          command: docker exec -it $HEROKU_APP_NAME rails db:create db:migrate
+          command: docker exec -it -e RAILS_ENV=test $HEROKU_APP_NAME rails db:create db:migrate
       - run:
           name: "before_test: setup db seed"
-          command: docker exec -it $HEROKU_APP_NAME rails db:seed:category db:seed:user
+          command: docker exec -it -e RAILS_ENV=test $HEROKU_APP_NAME rails db:seed:category
       - run:
           name: test
           command: docker exec -it -e RAILS_ENV=test $HEROKU_APP_NAME bundle exec rspec

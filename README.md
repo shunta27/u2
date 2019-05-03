@@ -15,6 +15,7 @@ $ docker-compose up -d
 $ docker exec -it u2-app rails db:create
 $ docker exec -it u2-app rails db:migrate
 $ docker exec -it u2-app rails db:seed:category db:seed:user
+$ docker exec -it -e RAILS_ENV=test u2-app rails db:migrate db:seed:category
 $ docker exec -it u2-app npm install
 $ docker exec -it u2-app npm run watch
 ```
