@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
 
   def _render_404(e = nill)
     logger.info "Rendering 404 with exception: #{e.message}" if e
+
+    e.message.force_encoding('UTF-8')
     ExceptionNotifier.notify_exception(e, :env => request.env, :data => {:message => "404 error"})
 
     render :layout => nil, template: 'errors/404', status: 404
@@ -42,6 +44,8 @@ class ApplicationController < ActionController::Base
 
   def _render_500(e = nill)
     logger.error "Rendering 500 with exception: #{e.message}" if e
+
+    e.message.force_encoding('UTF-8')
     ExceptionNotifier.notify_exception(e, :env => request.env, :data => {:message => "500 error"})
 
     render :layout => nil, template: 'errors/500', status: 500
