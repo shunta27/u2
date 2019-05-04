@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   # get 'help', :to => 'home#help'
 
-  # get 'terms', :to => 'home#terms'
+  get 'terms', :to => 'home#terms'
 
-  # get 'privacy', :to => 'home#privacy'
+  get 'privacy', :to => 'home#privacy'
 
   get 'inquiry', :to => 'inquiry#index'
   post 'inquiry' => 'inquiry#confirm'

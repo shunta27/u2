@@ -23,15 +23,19 @@ html, body {
   background: #a6e9df;
   height: 100%;
 }
+.section {
+  min-height: 100%;
+}
+
+// nav
 .navbar {
   box-shadow: 0 2px 2px 1px rgba(0,0,0,.1);
 }
 .navbar-item img {
   max-height: 2.3rem;
 }
-.section {
-  min-height: 100%;
-}
+
+//
 .profile-block {
   .label {
     min-width: 50px;
@@ -40,6 +44,40 @@ html, body {
     margin-left: 3.0rem;
   }
 }
+
+// terms
+.terms {
+  .content {
+    margin-top: 1.0rem;
+  }
+}
+
+// privacy
+.privacy {
+  .content {
+    margin-top: 1.0rem;
+  }
+}
+
+// footer
 .footer {
   padding: .5rem .5rem .5rem;
+
+  .footer-menu {
+    margin-bottom: .5rem;
+    li {
+      display: inline;
+      a:link {
+        color: #4a4a4a;
+      }
+      a:visited {
+        color: #4a4a4a;
+      }
+    }
+    li + li::before {
+      content: "|";
+      margin-left: .2rem;
+      margin-right: .2rem;
+    }
+  }
 }
