@@ -11,4 +11,7 @@
 /public/assets/dist/stylesheets
 /public/assets/manifest.json
 
+/docker_workspace/ftpd_server/data/*
+/docker_workspace/ftpd_server/passwd/*
+
 .env
