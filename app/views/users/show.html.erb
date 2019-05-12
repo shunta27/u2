@@ -1,34 +1,24 @@
 <% @page_title = 'マイページ' %>
 
-<div class="box">
-  <h1 class="title is-5">プロフィール</h1>
+<div class="box profile">
+  <h1 class="title is-6">プロフィール</h1>
   <hr>
   <div class="content">
-    <div class="profile-block field is-grouped">
-      <div class="label">お名前</div>
-      <div class="field"><%= @user.name %></div>
+    <div class="field is-grouped">
+      <div class="label is-small">お名前</div>
+      <div class="field is-small"><%= @user.name %></div>
     </div>
-  </div>
-  <div class="content">
-    <div class="profile-block field is-grouped">
-      <div class="label">質問数</div>
-      <div class="field"><%= link_to("#{@post_count} 件", user_show_users_index_path(@user)) %></div>
+    <div class="field is-grouped">
+      <div class="label is-small">質問数</div>
+      <div class="field is-small"><%= link_to("#{@post_count} 件", user_show_users_index_path(@user)) %></div>
     </div>
-  </div>
-  <div class="content">
-    <div class="profile-block field is-grouped">
-      <div class="label">アイコン</div>
+    <div class="field is-grouped">
+      <div class="label is-small">アイコン</div>
       <div class="field image is-128x128">
         <%= image_tag(@user.avatar_icon_url, class: 'is-rounded') %>
       </div>
     </div>
   </div>
-  <%# <div class="content">
-    <div class="profile-block field is-grouped">
-      <div class="label">自己紹介</div>
-      <div class="field">TODO:</div>
-    </div>
-  </div> %>
   <% if user_signed_in? && current_user.id == @user.id %>
   <div class="has-text-right">
     <%= link_to('ユーザ情報を編集する', user_path) %>

@@ -23,6 +23,11 @@ html, body {
   background: #a6e9df;
   height: 100%;
 }
+
+body {
+  font-size: 0.75rem;
+}
+
 .section {
   min-height: 100%;
 }
@@ -35,13 +40,17 @@ html, body {
   max-height: 2.3rem;
 }
 
-//
-.profile-block {
-  .label {
-    min-width: 50px;
+// post
+.post {
+  .media {
+    align-items: center;
   }
-  .field {
-    margin-left: 3.0rem;
+}
+
+// profile
+.profile {
+  .label {
+    min-width: 60px;
   }
 }
 

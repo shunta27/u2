@@ -10,29 +10,29 @@
 
 <%= form_for(@inquiry, :url => inquiry_path) do |f| %>
 <div class="box">
-  <h1 class="title is-5"><%= 'お問い合わせ' %></h1>
+  <h1 class="title is-6"><%= 'お問い合わせ' %></h1>
   <hr>
   <div class="field">
-    <%= f.label :name, 'お名前', class: 'label' %>
+    <%= f.label :name, 'お名前', class: 'label is-small' %>
     <div class="control">
-      <%= f.text_field :name, class: 'input', placeholder: '' %>
+      <%= f.text_field :name, class: 'input is-small', placeholder: '' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <%= f.label :email, 'メールアドレス', class: 'label is-small' %>
     <div class="control">
-      <%= f.text_field :email, class: 'input', placeholder: '' %>
+      <%= f.text_field :email, class: 'input is-small', placeholder: '' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :body, '本文', class: 'label' %>
+    <%= f.label :body, '本文', class: 'label is-small' %>
     <div class="control">
       <%= f.text_area :body, size: '20x10', class: 'textarea', placeholder: '質問内容をお書きください' %>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= f.submit '送信', class: 'button is-fullwidth' %>
+      <%= f.submit '送信', class: 'button is-small is-fullwidth' %>
     </div>
   </div>
 </div>

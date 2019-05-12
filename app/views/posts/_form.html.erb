@@ -10,31 +10,31 @@
 
 <%= form_for(@post, :url => (@post.new_record? ? posts_new_path : posts_edit_path)) do |f| %>
 <div class="box">
-  <h1 class="title is-5"><%= @post.new_record? ? '質問を投稿' : '質問を更新' %></h1>
+  <h1 class="title is-6"><%= @post.new_record? ? '質問を投稿' : '質問を更新' %></h1>
   <hr>
-  <div class="field">
-    <%= f.label :subject, 'タイトル', class: 'label' %>
+  <div class="field is-small">
+    <%= f.label :subject, 'タイトル', class: 'label is-small' %>
     <div class="control">
-      <%= f.text_field :subject, class: 'input', placeholder: 'わからないこと、聞きたいことをお書きください' %>
+      <%= f.text_field :subject, class: 'input is-small', placeholder: 'わからないこと、聞きたいことをお書きください' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :category_id, 'カテゴリー', class: 'label' %>
+    <%= f.label :category_id, 'カテゴリー', class: 'label is-small' %>
     <div class="control">
-      <div class="select">
+      <div class="select is-small">
         <%= f.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, { :prompt => '選択してください' } %>
       </div>
     </div>
   </div>
   <div class="field">
-    <%= f.label :body, '本文', class: 'label' %>
+    <%= f.label :body, '本文', class: 'label is-small' %>
     <div class="control">
-      <%= f.text_area :body, size: '20x10', class: 'textarea', placeholder: '質問内容をお書きください' %>
+      <%= f.text_area :body, size: '20x10', class: 'textarea is-small', placeholder: '質問内容をお書きください' %>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= f.submit (@post.new_record? ? '投稿' : '更新'), class: 'button is-fullwidth' %>
+      <%= f.submit (@post.new_record? ? '投稿' : '更新'), class: 'button is-small is-fullwidth' %>
     </div>
   </div>
 </div>

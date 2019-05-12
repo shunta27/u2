@@ -3,7 +3,7 @@
     <p class="menu-label">カテゴリ一覧</p>
     <ul class="menu-list">
       <% @categories.each do |category| %>
-      <li><%= link_to(category.name, category_posts_path(category)) %></li>
+      <li class="is-size-7"><%= link_to(category.name, category_posts_path(category)) %></li>
       <% end %>
     </ul>
   </aside>

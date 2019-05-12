@@ -1,13 +1,13 @@
 <% @page_title = @category.name %>
 
 <div class="box">
-  <h1 class="title is-5"><%= @category.name %></h1>
+  <h1 class="title is-6"><%= @category.name %></h1>
   <hr>
   <% if @posts.present? %>
     <% @posts.each do |post| %>
     <% post = post.decorate %>
     <article class="content post">
-      <div class="title is-size-4">
+      <div class="title is-size-5 has-margin-b-6">
         <%= link_to(post.subject, category_post_path(post.category, post)) %>
       </div>
       <div class="media">

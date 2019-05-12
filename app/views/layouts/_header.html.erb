@@ -22,17 +22,17 @@
         <div class="navbar-item">
           <div class="buttons">
             <% if user_signed_in? %>
-              <%= link_to user_show_path(current_user), :class => 'button is-primary' do %>
+              <%= link_to user_show_path(current_user), :class => 'button is-small is-primary' do %>
                 <strong><i class="fas fa-user fa-fw"></i>マイページ</strong>
               <% end %>
-              <%= link_to logout_path, method: :delete, :class => 'button is-light' do %>
+              <%= link_to logout_path, method: :delete, :class => 'button is-small is-light' do %>
                 <i class="fas fa-sign-out-alt fa-fw"></i></i>ログアウト
               <% end %>
             <% else %>
-              <%= link_to sign_up_path, :class => 'button is-primary' do %>
+              <%= link_to sign_up_path, :class => 'button is-small is-primary' do %>
                 <strong>登録</strong>
               <% end %>
-              <%= link_to login_path, :class => 'button is-light' do %>
+              <%= link_to login_path, :class => 'button is-small is-light' do %>
                 <i class="fas fa-sign-in-alt fa-fw"></i></i>ログイン
               <% end %>
             <% end %>

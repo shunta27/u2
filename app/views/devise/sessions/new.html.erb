@@ -4,18 +4,18 @@
 
 <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
 <div class="box">
-  <h1 class="title is-5">ログイン</h1>
+  <h1 class="title is-6">ログイン</h1>
   <hr>
   <div class="field">
-    <%= f.label :email, 'メールアドレス', class: 'label' %>
+    <%= f.label :email, 'メールアドレス', class: 'label is-small' %>
     <div class="control">
-      <%= f.email_field :email, class: 'input', placeholder: '' %>
+      <%= f.email_field :email, class: 'input is-small', placeholder: '' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :password, 'パスワード', class: 'label' %>
+    <%= f.label :password, 'パスワード', class: 'label is-small' %>
     <div class="control">
-      <%= f.password_field :password, class: 'input', placeholder: '' %>
+      <%= f.password_field :password, class: 'input is-small', placeholder: '' %>
     </div>
   </div>
   <% if devise_mapping.rememberable? -%>
@@ -26,7 +26,7 @@
   <% end %>
   <div class="field">
     <div class="control">
-      <%= f.submit 'ログイン', class: 'button is-fullwidth' %>
+      <%= f.submit 'ログイン', class: 'button is-small is-fullwidth' %>
     </div>
   </div>
   <div class="has-text-centered">

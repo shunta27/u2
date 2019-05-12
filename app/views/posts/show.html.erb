@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="box">
-  <h1 class="title is-5"><%= @post.subject %></h1>
+  <h1 class="title is-6"><%= @post.subject %></h1>
   <hr>
   <article class="media">
     <figure class="media-left">
@@ -58,12 +58,12 @@
   <div class="media-content">
     <div class="field">
       <p class="control">
-        <%= f.text_area :body, size: '20x3', class: 'textarea', placeholder: '' %>
+        <%= f.text_area :body, size: '20x3', class: 'textarea is-small', placeholder: '' %>
       </p>
     </div>
     <div class="field">
       <p class="control">
-        <%= f.submit 'コメントする', class: 'button is-fullwidth' %>
+        <%= f.submit 'コメントする', class: 'button is-small is-fullwidth' %>
       </p>
     </div>
   </div>
